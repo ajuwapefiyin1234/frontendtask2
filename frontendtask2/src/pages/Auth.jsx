@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useNavigate } from 'react-router-dom';
 import { Loader2, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 
 // --- ZOD SCHEMAS (Validation Rules) ---
@@ -29,6 +30,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   // State to manage loading state during form submission
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   // --- LOGIN FORM SETUP ---
   // Initialize React Hook Form for login with Zod validation
@@ -48,8 +50,8 @@ export default function Auth() {
   const onLogin = (data) => {
     setLoading(true); // Show loading state
     setTimeout(() => {
-      setLoading(false); // Hide loading state
-      alert("Login Successful!"); // Show success message (replace with actual login logic)
+      setLoading(false);
+      navigate('/dashboard');
     }, 1000); // Simulate API call delay
   };
 
@@ -71,7 +73,7 @@ export default function Auth() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      alert("Account Created!");
+      navigate('/dashboard');
     }, 1000);
   };
 

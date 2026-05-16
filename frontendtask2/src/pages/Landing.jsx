@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Users, Calendar, CheckCircle, BarChart3, Shield, Menu, X } from 'lucide-react';
+import Cards from '../cards';
+import StudentTable from '../StudentTable';
 
 /**
  * Landing Page Component
@@ -110,6 +112,31 @@ export default function Landing() {
               Learn More
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Dashboard Cards Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Dashboard Overview</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Key metrics and insights at a glance
+            </p>
+          </div>
+          <Cards />
+        </div>
+      </section>
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">Student Records</h3>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Search, sort, and manage student details from a single table.
+            </p>
+          </div>
+          <StudentTable />
         </div>
       </section>
 
